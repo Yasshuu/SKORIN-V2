@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKORIN — Academic Intelligence</title>
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/intro.css">
+  <script src="js/theme.js"></script>
+  <script>(function(){var d=document.documentElement;if(!/[?&]nointro\b/.test(location.search)&&!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches))d.classList.add("intro-on")})();</script>
+</head>
+<body class="auth-body">
+  <div class="auth-shell">
+    <section class="auth-visual">
+      <div class="brand"><!-- ▼▼ LOGO: taruh gambar logo lu di assets/logo.png (lihat assets/BACA-INI.txt) ▼▼ -->
+      <div class="brand-mark"><img src="assets/logo.png" alt="Logo SKORIN" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">SS</div><div><b>SKORIN</b><small>Academic Intelligence</small></div></div>
+      <div class="visual-copy">
+        <span class="eyebrow">SMARTER SCHOOL • BETTER LEARNING</span>
+        <h1>Nilai bukan cuma angka.<br><em>Jadikan data sebagai arah belajar.</em></h1>
+      </div>
+      <div class="mini-insights">
+        <div><b id="miniTuntas">—</b><span>ketuntasan kelas</span></div>
+        <div><b id="miniRata">—</b><span>rata-rata kelas</span></div>
+        <div><b id="miniPerhatian">—</b><span>perlu perhatian</span></div>
+      </div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-brand brand"><div class="brand-mark"><img src="assets/logo.png" alt="Logo SKORIN" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">SS</div><div><b>SKORIN</b><small>Academic Intelligence</small></div></div>
+        <span class="eyebrow">SELAMAT DATANG</span>
+        <h2>Masuk ke ruang belajar</h2>
+        <p class="muted">Pilih peran, lalu masuk dengan akun demo.</p>
+        <div class="role-tabs">
+          <button class="role-tab active" type="button" data-role="guru" aria-pressed="true"><span aria-hidden="true">👨‍🏫</span><b>Guru</b><small>Kelola &amp; analisis kelas</small></button>
+          <button class="role-tab" type="button" data-role="murid" aria-pressed="false"><span aria-hidden="true">🎓</span><b>Murid</b><small>Pantau progres belajar</small></button>
+        </div>
+        <form id="loginForm">
+          <label>Nama pengguna<input id="username" type="text" placeholder="Contoh: guru01" autocomplete="username" required></label>
+          <label>Kata sandi
+            <div class="password-wrap">
+              <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+              <button type="button" id="togglePass">Lihat</button>
+            </div>
+          </label>
+          <div class="form-row">
+            <label class="check"><input type="checkbox" id="remember" checked> Ingat saya</label>
+            <button type="button" class="text-link" id="forgot">Lupa akses?</button>
+          </div>
+          <p id="loginMsg" class="form-error" role="alert"></p>
+          <button class="primary-btn" type="submit">Masuk ke SKORIN <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="demo-note">
+          <b>Akun demo</b><br>
+          Guru: <code>guru01</code> / <code>guru123</code><br>
+          Murid: <code>murid01</code> / <code>murid123</code> (Lamine Yamal, XII-B, nilai tinggi) atau <code>murid02</code> / <code>murid123</code> (Rayhan Hannan, XII-A, perlu bimbingan)
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="js/ptn.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+</html>

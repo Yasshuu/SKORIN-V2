@@ -1,0 +1,9 @@
+ASET GAMBAR
+===========
+logo.png         ikon logo (si peniup seruling, warna neon) -> sidebar, login, favicon
+logo-full.png    karakter penuh menghadap kanan
+piper-walk.png   sprite 8 frame jalan untuk layar pembuka (360x420 per frame)
+
+Mau ganti dengan gambar sendiri? Timpa logo.png (PNG persegi, min 256x256).
+Kalau logo.png hilang, otomatis tampil kotak "SS" (tidak error).
+Layar pembuka butuh piper-walk.png; tanpa itu hanya animasi tidak tampil, login tetap jalan.

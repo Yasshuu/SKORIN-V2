@@ -1,0 +1,71 @@
+/* SKORIN — layar pembuka sinematik (peniup seruling). Hanya dipakai di index.html. */
+
+/* Tutup putih sejak frame pertama (dipasang oleh skrip kecil di <head>) → tidak ada kedip halaman login. */
+html.intro-on::before{content:"";position:fixed;inset:0;background:#fff;z-index:90}
+html.intro-playing,html.intro-playing body{overflow:hidden}
+
+.intro-curtain{position:fixed;inset:0;background:#fff;z-index:95;pointer-events:none}
+.intro-veil{
+  position:fixed;top:0;bottom:0;left:0;width:260px;z-index:96;pointer-events:none;
+  background:linear-gradient(90deg,rgba(139,92,246,0),rgba(139,92,246,.30) 55%,rgba(34,211,238,.55) 100%);
+}
+.intro-trail{
+  position:fixed;left:0;bottom:calc(7vh + 4px);height:4px;z-index:97;pointer-events:none;border-radius:4px;
+  background:linear-gradient(90deg,transparent,#8b5cf6 40%,#22d3ee);
+  box-shadow:0 0 16px 2px rgba(139,92,246,.7),0 0 36px 6px rgba(34,211,238,.35);
+}
+
+/* ---------- Si peniup seruling ---------- */
+.intro-piper{position:fixed;left:0;bottom:7vh;z-index:98;pointer-events:none;will-change:transform}
+.intro-bob{width:100%;height:100%;animation:piperBob .475s ease-in-out infinite}
+.intro-sprite{
+  width:100%;height:100%;background-image:url("../assets/piper-walk.png");background-repeat:no-repeat;
+  background-size:calc(var(--fw) * 8) 100%;
+  animation:piperWalk .95s steps(8) infinite;
+  filter:drop-shadow(0 0 14px rgba(139,92,246,.6));
+}
+.intro-shadow{
+  position:absolute;left:12%;right:2%;bottom:-6px;height:16px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(60,30,160,.45),transparent);
+  animation:piperShadow .475s ease-in-out infinite;
+}
+@keyframes piperWalk{to{background-position-x:calc(var(--fw) * -8)}}
+@keyframes piperBob{
+  0%,100%{transform:translateY(0) rotate(-1.2deg)}
+  50%{transform:translateY(-14px) rotate(2deg)}
+}
+@keyframes piperShadow{0%,100%{transform:scaleX(1);opacity:.9}50%{transform:scaleX(.82);opacity:.55}}
+
+/* ---------- Nada & percikan sihir ---------- */
+.intro-note,.intro-spark{position:fixed;z-index:99;pointer-events:none;font-weight:800;line-height:1;will-change:transform,opacity}
+.intro-note{animation:noteFloat 2s ease-out forwards;text-shadow:0 0 14px currentColor,0 0 28px currentColor}
+@keyframes noteFloat{
+  0%{opacity:0;transform:translate(0,0) scale(.5) rotate(0)}
+  15%{opacity:1}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.15) rotate(var(--r))}
+}
+.intro-spark{animation:sparkBurst .9s cubic-bezier(.1,.7,.3,1) forwards;text-shadow:0 0 12px currentColor}
+@keyframes sparkBurst{
+  0%{opacity:1;transform:translate(0,0) scale(.4)}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.3) rotate(var(--r))}
+}
+
+/* ---------- Elemen login yang "dipanggil" ---------- */
+.magic{opacity:0;transition:opacity .8s ease,transform .95s cubic-bezier(.2,1.5,.4,1)}
+.magic-pop{transform:translateY(38px) scale(.8) rotate(-2deg)}
+.magic.on{opacity:1}
+.magic-pop.on{transform:none}
+
+/* ---------- Tombol lewati / putar ulang ---------- */
+.intro-skip,.intro-replay{
+  position:fixed;z-index:100;font:700 14px/1 var(--font,system-ui);cursor:pointer;border-radius:999px;padding:11px 16px;
+  border:1px solid rgba(40,30,110,.25);backdrop-filter:blur(10px);transition:.2s;
+}
+.intro-skip{top:18px;right:18px;background:rgba(255,255,255,.9);color:#2a1a78}
+.intro-skip:hover{background:#fff;transform:translateY(-2px)}
+.intro-replay{left:16px;bottom:16px;background:var(--glass);color:var(--text);border-color:var(--line)}
+.intro-replay:hover{background:var(--glass-2);transform:translateY(-2px)}
+.intro-replay[hidden]{display:none}
+
+@media(max-width:850px){.intro-replay{bottom:auto;top:16px;left:16px}}
+@media(prefers-reduced-motion:reduce){.intro-curtain,.intro-veil,.intro-trail,.intro-piper{display:none}}
